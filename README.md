@@ -4,7 +4,6 @@
 A modern, full-stack project management application built with React and Python Flask, designed to streamline team collaboration and task tracking.
 
 🚀 Features
-Interactive Kanban Boards: Visualize tasks with drag-and-drop functionality.
 
 User Authentication: Secure login and registration system.
 
