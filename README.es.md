@@ -1,81 +1,153 @@
-# Plantilla de WebApp con React JS y Flask API
+🧩 Echo Board Herramienta de Gestión de Proyectos
 
-Construye aplicaciones web usando React.js para el front end y python/flask para tu API backend.
 
-- La documentación se puede encontrar aquí: https://4geeks.com/docs/start/react-flask-template
-- Aquí hay un video sobre [cómo usar esta plantilla](https://www.youtube.com/watch?v=qBz6Ddd2m38)
-- Integrado con Pipenv para la gestión de paquetes.
-- Despliegue rápido a Render [en solo unos pocos pasos aquí](https://4geeks.com/es/docs/start/despliega-con-render-com).
-- Uso del archivo .env.
-- Integración de SQLAlchemy para la abstracción de bases de datos.
+Una aplicación moderna full-stack desarrollada con React y Python Flask, diseñada para facilitar la colaboración en equipo y el seguimiento de tareas.
 
-### 1) Instalación:
+🚀 Funcionalidades
 
-> Si usas Github Codespaces (recomendado) o Gitpod, esta plantilla ya vendrá con Python, Node y la base de datos Posgres instalados. Si estás trabajando localmente, asegúrate de instalar Python 3.10, Node.
+Autenticación de Usuarios: Sistema seguro de inicio de sesión y registro.
 
-Se recomienda instalar el backend primero, asegúrate de tener Python 3.10, Pipenv y un motor de base de datos (se recomienda Posgres).
+Gestión de Tareas: Crear, actualizar y eliminar tareas fácilmente.
 
-1. Instala los paquetes de python: `$ pipenv install`
-2. Crea un archivo .env basado en el .env.example: `$ cp .env.example .env`
-3. Instala tu motor de base de datos y crea tu base de datos, dependiendo de tu base de datos, debes crear una variable DATABASE_URL con uno de los valores posibles, asegúrate de reemplazar los valores con la información de tu base de datos:
+Actualizaciones en Tiempo Real: Sincronización instantánea entre todos los usuarios.
 
-| Motor     | DATABASE_URL                                        |
-| --------- | --------------------------------------------------- |
-| SQLite    | sqlite:////test.db                                  |
-| MySQL     | mysql://username:password@localhost:port/example    |
-| Postgres  | postgres://username:password@localhost:5432/example |
+Diseño Responsivo: Adaptable para su uso en cualquier dispositivo.
 
-4. Migra las migraciones: `$ pipenv run migrate` (omite si no has hecho cambios en los modelos en `./src/api/models.py`)
-5. Ejecuta las migraciones: `$ pipenv run upgrade`
-6. Ejecuta la aplicación: `$ pipenv run start`
+🔧 Tecnologías
+Frontend: React, Redux, Axios
 
-> Nota: Los usuarios de Codespaces pueden conectarse a psql escribiendo: `psql -h localhost -U gitpod example`
+Backend: Python, Flask, SQLAlchemy
 
-### Deshacer una migración
+Base de Datos: PostgreSQL
 
-También puedes deshacer una migración ejecutando
+Autenticación: JWT (JSON Web Tokens)
 
-```sh
-$ pipenv run downgrade
-```
+Estilos: Bootstrap 5
 
-### Población de la tabla de usuarios en el backend
+Despliegue: Render, Gitpod
 
-Para insertar usuarios de prueba en la base de datos, ejecuta el siguiente comando:
+🛠️ Instalación
+Clona el repositorio
+bash
+Copy
+Edit
+git clone https://github.com/robertaval/robertaval_Echo_Board_Project_Mgmt_Tool.git
+cd robertaval_Echo_Board_Project_Mgmt_Tool
+Configuración del Backend
+Entra en el directorio backend:
 
-```sh
-$ flask insert-test-users 5
-```
+bash
+Copy
+Edit
+cd backend
+Instala las dependencias:
 
-Y verás el siguiente mensaje:
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Configura las variables de entorno copiando el archivo de ejemplo:
 
-```
-    Creating test users
-    test_user1@test.com created.
-    test_user2@test.com created.
-    test_user3@test.com created.
-    test_user4@test.com created.
-    test_user5@test.com created.
-    Users created successfully!
-```
+bash
+Copy
+Edit
+cp .env.example .env
+Aplica las migraciones de base de datos:
 
-### **Nota importante para la base de datos y los datos dentro de ella**
+bash
+Copy
+Edit
+flask db upgrade
+Ejecuta el servidor Flask:
 
-Cada entorno de Github Codespace tendrá **su propia base de datos**, por lo que si estás trabajando con más personas, cada uno tendrá una base de datos diferente y diferentes registros dentro de ella. Estos datos **se perderán**, así que no pases demasiado tiempo creando registros manualmente para pruebas, en su lugar, puedes automatizar la adición de registros a tu base de datos editando el archivo ```commands.py``` dentro de la carpeta ```/src/api```. Edita la línea 32 de la función ```insert_test_data``` para insertar los datos según tu modelo (usa la función ```insert_test_users``` anterior como ejemplo). Luego, todo lo que necesitas hacer es ejecutar ```pipenv run insert-test-data```.
+bash
+Copy
+Edit
+flask run
+Configuración del Frontend
+Entra en el directorio frontend:
 
-### Instalación manual del Front-End:
+bash
+Copy
+Edit
+cd ../frontend
+Instala las dependencias:
 
--   Asegúrate de estar usando la versión 20 de node y de que ya hayas instalado y ejecutado correctamente el backend.
+bash
+Copy
+Edit
+npm install
+Inicia el servidor de desarrollo:
 
-1. Instala los paquetes: `$ npm install`
-2. ¡Empieza a codificar! inicia el servidor de desarrollo de webpack `$ npm run start`
+bash
+Copy
+Edit
+npm start
+La aplicación estará disponible en http://localhost:3000.
 
-## ¡Publica tu sitio web!
+📸 Capturas de pantalla
 
-Esta plantilla está 100% lista para desplegarse con Render.com y Heroku en cuestión de minutos. Por favor, lee la [documentación oficial al respecto](https://4geeks.com/docs/start/deploy-to-render-com).
 
-### Contribuyentes
+Panel principal mostrando las tareas del proyecto.
 
-Esta plantilla fue construida como parte del [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) de 4Geeks Academy por [Alejandro Sanchez](https://twitter.com/alesanchezr) y muchos otros contribuyentes. Descubre más sobre nuestro [Curso de Desarrollador Full Stack](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer) y [Bootcamp de Ciencia de Datos](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
 
-Puedes encontrar otras plantillas y recursos como este en la [página de github de la escuela](https://github.com/4geeksacademy/).
+
+Vista detallada de una tarea seleccionada.
+
+📈 Estructura del Proyecto
+bash
+Copy
+Edit
+/backend
+  /app
+    /models
+    /routes
+    /utils
+  /migrations
+  /tests
+  .env
+  requirements.txt
+/frontend
+  /public
+  /src
+    /components
+    /redux
+    /styles
+  package.json
+  .gitignore
+.gitignore
+README.md
+🧪 Pruebas
+Las pruebas del backend están en /backend/tests. Para ejecutarlas:
+
+bash
+Copy
+Edit
+pytest
+Las pruebas del frontend están en /frontend/src/tests. Para ejecutarlas:
+
+bash
+Copy
+Edit
+npm test
+🌍 Contribuciones
+¡Se aceptan contribuciones! Para comenzar:
+
+Haz un fork del repositorio.
+
+Crea una nueva rama (git checkout -b nombre-rama).
+
+Realiza tus cambios.
+
+Haz commit de los cambios (git commit -am 'Agrega funcionalidad').
+
+Envía la rama al repositorio remoto (git push origin nombre-rama).
+
+Abre un Pull Request.
+
+📬 Contacto
+Email: roberta_valyte@hotmail.com
+
+LinkedIn: linkedin.com/in/roberta-valyte
+
+Portafolio: github.com/robertaval
